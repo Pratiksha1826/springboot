@@ -11,17 +11,28 @@
 	<groupId>com.springboot.tutorial</groupId>
 	<artifactId>springboot-helloworld-tutorial</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+		<packaging>war</packaging>
+	
 	<name>com.springboot.tutorial</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
+	        <start-class>com.springboot.tutorial.Application</start-class>
+	
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	
 		<java.version>1.8</java.version>
+    <tomcat.version>9.0.35</tomcat.version>
+		
 	</properties>
 
 	<dependencies>
 	 <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+            			<scope>provided</scope>
+            
         </dependency>
      <!--  <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -31,31 +42,42 @@
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+            			<scope>provided</scope>
+            
         </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+						<scope>provided</scope>
+			
 		</dependency>
 	<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
 <dependency>
     <groupId>org.hibernate.validator</groupId>
     <artifactId>hibernate-validator</artifactId>
+    			<scope>provided</scope>
+    
 </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+						<scope>provided</scope>
+			
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
 		<dependency>
 		    <groupId>org.apache.tomcat.embed</groupId>
 		    <artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-devtools</artifactId>
+		    			<scope>provided</scope>
+		    
 		</dependency>
 
 		<dependency>
@@ -68,12 +90,12 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency> 
-		
-		<dependency>
+	 
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
-		</dependency>
+		</dependency>  -->
 			<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
 	<dependency>
 	    <groupId>javax.servlet</groupId>
@@ -84,6 +106,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 			<exclusions>
+			  <exclusion>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+    </exclusion>
 				<exclusion>
 					<groupId>org.junit.vintage</groupId>
 					<artifactId>junit-vintage-engine</artifactId>
@@ -93,6 +119,7 @@
 	</dependencies>
 
 	<build>
+	<finalName>HelloWorld</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

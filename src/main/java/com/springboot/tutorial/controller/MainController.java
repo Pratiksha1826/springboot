@@ -12,6 +12,13 @@ import com.springboot.tutorial.modal.Employee;
 
 @Controller
 public class MainController {
+	
+	 @RequestMapping("/")
+	    public String login1(Model model ) {
+	    	
+	    	System.out.println("in login page");
+	        return "home";
+	    }
 
     @RequestMapping("/login")
     public String login(Model model ) {
